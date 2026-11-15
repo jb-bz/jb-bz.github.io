@@ -1,14 +1,15 @@
 # HANDOFF — MysteryD web (md-web)
 
-Last updated: 2026-11-15, after v7 brand round (MW-15).
+Last updated: 2026-11-15, after v8 operator notes (MW-16).
 Read this first: sections 0 and 1. Everything else is reference.
 
 ## 0. Read this first
 
-The site is LIVE and current. v7 (brand round B1–B2, MW-15) is deployed and verified on both GitHub Pages URLs; the same push carried v6 (MW-7), whose commit had been local-only. Nothing is mid-flight in the code. What is NOT done:
+The site is LIVE and current. v8 (operator notes O1–O3, MW-16) is deployed and verified on both GitHub Pages URLs. Nothing is mid-flight in the code. What is NOT done:
 
-- Jira MW-7, MW-15 and MW-11/12/13 are In Progress awaiting operator close-out (Form A rule: only the user closes a round).
+- Jira MW-7, MW-15, MW-16 and MW-11/12/13 are In Progress awaiting operator close-out (Form A rule: only the user closes a round).
 - MW-14 (Backlog): revive featured finding/case study + client quote once real customer material exists.
+- MW-17 (Backlog): revive File exchange section once real .REP case files exist (hidden in v8, markup kept).
 - Backlog: MW-5 Coolify hosting, MW-6 real `/api/intake` backend.
 - "q6." from the original brief was never clarified by the user.
 
@@ -34,9 +35,14 @@ REST: `https://api.atlassian.com/ex/jira/{cloudId}/rest/api/3/...`, Bearer token
 
 ## 2. Current state (verified 2026-11-15)
 
-HEAD is the v7 brand-round commit, pushed to both remotes (that push also carried v6 `b4f0921`, which had never left the local repo). Prior releases: `9d6584e` (v5), `e4db6ad` (v4).
+HEAD is the v8 operator-notes commit, pushed to both remotes. Prior releases: `e11bc6a` (v7, which also carried v6 `b4f0921`), `9d6584e` (v5), `e4db6ad` (v4).
 
-Files: `index.html`, `styles.css`, `intake.js` (form logic), `atmosphere.js` (sigil canvas), `serve.py` (local static server), `tests/test_v4.py` + `tests/test_v5.py` + `tests/test_v6.py` + `tests/test_v7.py` (53 static contract tests), `assets/fonts/` (Special Elite, Source Sans 3 regular + italic, OFL.txt), `docs/`, `sparc/`.
+Files: `index.html`, `styles.css`, `intake.js` (form logic), `atmosphere.js` (sigil canvas), `serve.py` (local static server), `tests/test_v4.py` + `tests/test_v5.py` + `tests/test_v6.py` + `tests/test_v7.py` + `tests/test_v8.py` (63 static contract tests), `assets/fonts/` (Special Elite, Source Sans 3 regular + italic, OFL.txt), `docs/`, `sparc/`.
+
+v8 shipped operator notes (MW-16):
+- Wordmark is exactly 1.25× the headline at every width: base clamp(1.875rem, 9.625vw, 4.375rem); ≥1024 clamp(2.5rem, 4vw, 3.28125rem); ≥1440 3.4375rem (55px vs 44px headline). Stamp styling kept (double frame, rotate(-2deg), red-deep). Measured ratio 1.25 at 320/390/1440.
+- File exchange section hidden via `hidden` attribute — markup + CSS kept for revival (MW-17). Both Evidence nav links removed; visible folios now 01–04 (FAQ renumbered 05→04; hidden exchange keeps data-folio 04 + revival comment).
+- "Case notes" renamed "FAQ" (h2#notes-title); section id `notes` and nav anchors unchanged.
 
 v7 shipped brand (MW-15):
 - Intake form heading "OPEN A CASE" enlarged + bold: clamp(1.375rem, 4vw, 1.875rem), weight 700, green; FORM 01 stays small/faint; dotted leader kept.
@@ -55,8 +61,8 @@ v5 shipped content:
 - Font stack: Special Elite (display + typewriter) + Source Sans 3 (body, italic variable) + system fallbacks. Rye and Anton fully removed (faces, tokens, files).
 - Deadline select: In 48 hours (rush charge applies) / 1 week / 2 weeks / Negotiable (default). Budget: only "Undecided (scope first)".
 
-Verification battery (all green at v7):
-- `python3 -m unittest discover -s tests` → 53/53 OK.
+Verification battery (all green at v8):
+- `python3 -m unittest discover -s tests` → 63/63 OK.
 - `node --check intake.js && node --check atmosphere.js` → clean.
 - Vision pass at 390×844 and 1440×900 (hero + services): no overflow/collision.
 - Reduced-motion: 0 animations, headline visible, sigil field hidden per CSS.
@@ -64,9 +70,9 @@ Verification battery (all green at v7):
 - Form flow: empty submit focuses first invalid; filled submit shows "Case file opened." + FILED stamp (confirms on ok OR 404/405/501 from `/api/intake`).
 - impeccable detect: 0 anti-patterns (1 advisory: intentional ruled-paper texture — keep it).
 
-Jira state: MW-1 In Progress (epic); MW-2/3/4/8/9/10 Done; MW-5/6 Backlog; MW-7 In Progress (v6 implemented + deployed, awaiting operator close-out); MW-11/12/13 In Progress awaiting operator close-out; MW-14 Backlog (revive finding + quote when customers exist); MW-15 In Progress (v7 implemented + deployed, awaiting operator close-out).
+Jira state: MW-1 In Progress (epic); MW-2/3/4/8/9/10 Done; MW-5/6 Backlog; MW-7 In Progress (v6 live, awaiting operator close-out); MW-11/12/13 In Progress awaiting operator close-out; MW-14 Backlog (revive finding + quote); MW-15 In Progress (v7 live, awaiting operator close-out); MW-16 In Progress (v8 live, awaiting operator close-out); MW-17 Backlog (revive File exchange when real .REP files exist).
 
-Docs map: `docs/sparc-v4-intake.md` (v4 spec), `docs/sparc-v5-notes.md` (v5 spec), `docs/sparc-v6-content.md` (v6 spec), `docs/sparc-v7-brand.md` (v7 spec), `docs/sigil-briefs.md` (16 original glyph briefs), `sparc/STATUS.md` (task table), `sparc/phase-reports.md` (RED/GREEN + defect log), `sparc/tasks.md`, `IDEA.md`, `PRODUCT.md`. Brief v8.1 source: `~/.hermes/attachments/pasted_content_2026-11-14_09-27-12-491_022e31.txt`.
+Docs map: `docs/sparc-v4-intake.md` (v4 spec), `docs/sparc-v5-notes.md` (v5 spec), `docs/sparc-v6-content.md` (v6 spec), `docs/sparc-v7-brand.md` (v7 spec), `docs/sparc-v8-notes.md` (v8 spec), `docs/sigil-briefs.md` (16 original glyph briefs), `sparc/STATUS.md` (task table), `sparc/phase-reports.md` (RED/GREEN + defect log), `sparc/tasks.md`, `IDEA.md`, `PRODUCT.md`. Brief v8.1 source: `~/.hermes/attachments/pasted_content_2026-11-14_09-27-12-491_022e31.txt`.
 
 ## 3. Hard rules (never break)
 
@@ -114,7 +120,8 @@ Docs map: `docs/sparc-v4-intake.md` (v4 spec), `docs/sparc-v5-notes.md` (v5 spec
 - MW-5: Coolify hosting (user wants it eventually; don't block on it).
 - MW-6: real `/api/intake` endpoint (form currently confirms on 404/405/501 as a stub).
 - MW-14: revive featured finding/case study + client quote once real customer reports/quotes exist (removed in v6 to avoid fabricated content).
-- Operator close-out of MW-7, MW-15 and MW-11/12/13 when the user confirms the live rounds.
+- MW-17: revive File exchange section once real .REP case files exist (hidden in v8; remove `hidden`, re-add Evidence nav links, renumber FAQ back to 05).
+- Operator close-out of MW-7, MW-15, MW-16 and MW-11/12/13 when the user confirms the live rounds.
 - "q6." from the brief: never clarified; ask if it becomes relevant.
 
 ## 8. Palette + type tokens (current)

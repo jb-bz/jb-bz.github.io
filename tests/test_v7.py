@@ -75,23 +75,24 @@ class B2WordmarkStamp(unittest.TestCase):
         wm = font_size(".wordmark")
         hl = font_size(".headline")
         for vw in (320, 390, 600, 768, 1023):
-            self.assertGreater(size_at(wm, vw), size_at(hl, vw), f"viewport {vw}px")
+            # v8 (MW-16): exact 1.25x ratio, not merely larger
+            self.assertAlmostEqual(size_at(wm, vw) / size_at(hl, vw), 1.25, delta=0.01, msg=f"viewport {vw}px")
 
     def test_wordmark_dominates_headline_at_desktop(self):
-        desktop = CSS.split("@media (min-width: 1024px)")[1]
-        wm = re.search(r"\.wordmark\s*\{([^}]*)\}", desktop)
-        self.assertIsNotNone(wm, "desktop wordmark override missing")
-        wm_m = re.search(r"font-size:\s*([\d.]+)rem", wm.group(1))
-        self.assertIsNotNone(wm_m)
-        wm_size = float(wm_m.group(1)) * 16
+        # v8 (MW-16): exact 1.25x ratio at desktop widths; wordmark may be clamp or rem
         for media, vw in (("@media (min-width: 1024px)", 1024), ("@media (min-width: 1440px)", 1440)):
             seg = CSS.split(media)[1]
+            wm = re.search(r"\.wordmark\s*\{([^}]*)\}", seg)
+            self.assertIsNotNone(wm, f"wordmark override missing in {media}")
+            wm_m = re.search(r"font-size:\s*([^;]+);", wm.group(1))  # type: ignore[union-attr]
+            self.assertIsNotNone(wm_m)
+            wm_size = size_at(wm_m.group(1).strip(), vw)  # type: ignore[union-attr]
             hl = re.search(r"\.headline\s*\{([^}]*)\}", seg)
             self.assertIsNotNone(hl, media)
-            spec_m = re.search(r"font-size:\s*([^;]+);", hl.group(1))
+            spec_m = re.search(r"font-size:\s*([^;]+);", hl.group(1))  # type: ignore[union-attr]
             self.assertIsNotNone(spec_m)
-            spec = spec_m.group(1).strip()
-            self.assertGreater(wm_size, size_at(spec, vw), media)
+            spec = spec_m.group(1).strip()  # type: ignore[union-attr]
+            self.assertAlmostEqual(wm_size / size_at(spec, vw), 1.25, delta=0.01, msg=media)
 
     def test_wordmark_still_home_link(self):
         m = re.search(r'<a class="wordmark"[^>]*>', HTML)

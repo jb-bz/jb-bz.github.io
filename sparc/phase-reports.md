@@ -117,3 +117,23 @@ Date: 2026-11-15. Ticket MW-15 (In Progress, epic MW-1). Spec: docs/sparc-v7-bra
 - Form flow at 390: filled submit files case — form hidden, case-opened visible ("The night desk will respond within 24 hours."), fail hidden.
 - Harness flakes this round: 2 daemon timeouts on reload+evaluate chains — recovered via ensure_real_tab + new_tab, split into smaller steps. Mobile screenshot must scrollTo(0,0) after reload (scroll restore lands mid-page).
 - Deploy note: v6 commit b4f0921 was local-only (handoff "pushed" claim stale); v7 push carries v6+v7 to both remotes together.
+
+# SPARC v8 phase reports — operator notes (MW-16)
+
+## Specification
+- docs/sparc-v8-notes.md. Three operator notes: logo exactly 25% larger than headline; File exchange out of view but kept for later; "Case notes" → "FAQ".
+- Interpretation: "25% larger" = exact ratio 1.25 at every viewport (v7 was ~1.3–1.6x, too big). Each headline clamp bound ×1.25 for the wordmark; desktop overrides likewise.
+- Exchange hidden via `hidden` attribute (markup + CSS kept); Evidence nav links removed; FAQ folio 05→04; revival ticket MW-17 filed → Backlog.
+
+## B1/B2/B3 — RED → GREEN
+- RED: 7 v8 contract failures pre-change (ratio base/desktop, stamp kept, exchange hidden/markup/links/folios, FAQ title/copy/anchor — 10 tests, 7 failing).
+- GREEN: wordmark base clamp(1.875rem, 9.625vw, 4.375rem); ≥1024 clamp(2.5rem, 4vw, 3.28125rem); ≥1440 3.4375rem. exchange section hidden; both Evidence links removed (topbar + site-nav — second link needed its own patch, 6-space indent); FAQ h2 + comments renamed; folio renumber. v7 dominance tests retuned to exact 1.25 ratio; desktop test rewritten per-media (old regex only parsed rem, not clamp).
+- Suite: 63/63 OK (v4 14 + v5 16 + v6 14 + v7 9 + v8 10). node --check both JS files clean.
+
+## Verification (browser, session mdweb-v8)
+- Ratio measured in live DOM: 320 → 30.8/24.64px, 390 → 37.54/30.03px, 1440 → 55/44px — all exactly 1.25. No horizontal overflow at any width.
+- Exchange: hidden=true, display:none, rect height 0, zero #exchange links. FAQ title "FAQ", folio 04.
+- Vision pass: desktop 1440 + mobile 390 screenshots — stamp ~25% larger, no clipping/overlap (mobile stamp ends x≈263 of 390, clear of hamburger).
+- Form flow at 390: filled submit files case — form hidden, case-opened visible, FILED stamp, ref timestamp, fail hidden.
+- Reduced-motion: sigil field + lamp hidden, reveals visible (JS skips adding .reveal under RM — null-safe probe required). FAQ anchor lands top=72px; details toggle works.
+- Harness notes: capture_screenshot() overwrites one path — copy between shots. RM removes canvas from DOM entirely (getComputedStyle on null throws); probe must null-guard.

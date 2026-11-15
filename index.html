@@ -19,7 +19,6 @@
   <nav class="topbar-nav" aria-label="Quick sections">
     <a href="#services" data-spy="services">Services</a>
     <a href="#method" data-spy="method">Method</a>
-    <a href="#exchange" data-spy="exchange">Evidence</a>
     <a href="#notes" data-spy="notes">FAQ</a>
   </nav>
   <a class="topbar-cta" href="#intake">Open a case</a>
@@ -42,7 +41,6 @@
     <nav id="site-nav" class="site-nav" aria-label="Sections">
       <a href="#services" data-spy="services">Services</a>
       <a href="#method" data-spy="method">Method</a>
-      <a href="#exchange" data-spy="exchange">Evidence</a>
       <a href="#notes" data-spy="notes">FAQ</a>
       <a href="#intake" class="nav-cta">Open a case</a>
     </nav>
@@ -183,8 +181,10 @@
       </ol>
     </section>
 
-    <!-- ============ SECTION 4 · FILE EXCHANGE · folio 04 ============ -->
-    <section class="sheet" id="exchange" data-folio="04" aria-labelledby="exchange-title">
+    <!-- ============ SECTION 4 · FILE EXCHANGE · folio 04 · HIDDEN v8 (MW-16) ============
+         Kept in markup for later revival. To restore: remove `hidden`, re-add nav links,
+         renumber the FAQ section back to folio 05. -->
+    <section class="sheet" id="exchange" data-folio="04" aria-labelledby="exchange-title" hidden>
       <span class="folio" aria-hidden="true">04</span>
       <div class="sheet-head">
         <h2 id="exchange-title" class="sheet-title">File exchange</h2>
@@ -210,12 +210,12 @@
 
     </section>
 
-    <!-- ============ SECTION 5 · CASE NOTES · folio 05 ============ -->
-    <section class="sheet" id="notes" data-folio="05" aria-labelledby="notes-title">
-      <span class="folio" aria-hidden="true">05</span>
+    <!-- ============ SECTION 5 · FAQ · folio 04 (renumbered v8; was 05 while exchange visible) ============ -->
+    <section class="sheet" id="notes" data-folio="04" aria-labelledby="notes-title">
+      <span class="folio" aria-hidden="true">04</span>
       <div class="sheet-head">
-        <h2 id="notes-title" class="sheet-title">Case notes</h2>
-        <span class="sheet-num">05</span>
+        <h2 id="notes-title" class="sheet-title">FAQ</h2>
+        <span class="sheet-num">04</span>
       </div>
 
       <div class="faq">

@@ -201,7 +201,7 @@ body {
 .wordmark {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 10vw, 4.5rem);
+  font-size: clamp(1.875rem, 9.625vw, 4.375rem); /* v8: exactly 1.25x the headline at every width */
   line-height: 1.05;
   letter-spacing: 0.08em;
   color: var(--red-deep);
@@ -610,7 +610,7 @@ body {
 }
 .files-pending td { font-style: italic; color: var(--ink-faint); }
 
-/* ---------- case notes ---------- */
+/* ---------- FAQ ---------- */
 
 .faq { border-top: 2px solid var(--ink); padding-top: 0.75rem; margin-bottom: 2rem; }
 .faq details { border-bottom: 1px solid var(--rule-soft); }
@@ -702,7 +702,7 @@ body {
   .topbar { display: flex; }
 
   .masthead { padding-top: 1.25rem; }
-  .wordmark { font-size: 4.5rem; }
+  .wordmark { font-size: clamp(2.5rem, 4vw, 3.28125rem); } /* v8: 1.25x desktop headline */
   .site-nav { display: none; }
 
   .sheet { padding: 4rem 0 4.5rem; }
@@ -772,4 +772,5 @@ body {
   :root { --sheet-w: 76rem; }
   .intake-grid { gap: 5rem; }
   .headline { font-size: 2.75rem; }
+  .wordmark { font-size: 3.4375rem; } /* v8: 1.25x headline */
 }
