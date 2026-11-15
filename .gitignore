@@ -3,3 +3,6 @@ assets/_rejected/
 serve.py
 *.log
 .DS_Store
+
+__pycache__/
+*.pyc

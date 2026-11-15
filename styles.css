@@ -188,6 +188,9 @@ body {
   color: var(--ink-soft);
 }
 .status-item { display: inline-flex; align-items: center; gap: 0.45rem; white-space: nowrap; }
+@media (max-width: 599px) {
+  .status-strip { justify-content: flex-start; }
+}
 .status-open { color: var(--green); }
 .dot {
   width: 0.5rem; height: 0.5rem; border-radius: 50%;
@@ -301,7 +304,7 @@ body {
   font-family: var(--font-head);
   font-weight: 400;
   font-size: clamp(2.5rem, 11.5vw, 4.75rem);
-  line-height: 1.06;
+  line-height: 1.14;
   letter-spacing: 0.005em;
   color: var(--ink);
 }
@@ -324,11 +327,13 @@ body {
   to { background-size: 100% 2px; }
 }
 .hl-wrong {
+  display: inline-block;
+  line-height: 1;
   font-style: normal;
   color: var(--red);
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 0.18em;
+  text-underline-offset: 0.06em;
 }
 .hl-stop {
   display: inline-block;
