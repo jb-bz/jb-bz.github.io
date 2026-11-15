@@ -7,7 +7,7 @@ Read this first: sections 0 and 1. Everything else is reference.
 
 The site is LIVE and current. v8 (operator notes O1–O3, MW-16) is deployed and verified on both GitHub Pages URLs. Nothing is mid-flight in the code. What is NOT done:
 
-- Jira MW-7, MW-15, MW-16 and MW-11/12/13 are In Progress awaiting operator close-out (Form A rule: only the user closes a round).
+- Jira MW-16 is In Progress awaiting operator close-out (Form A rule: only the user closes a round). MW-7, MW-15, MW-11/12/13 closed by operator 2026-11-15.
 - MW-14 (Backlog): revive featured finding/case study + client quote once real customer material exists.
 - MW-17 (Backlog): revive File exchange section once real .REP case files exist (hidden in v8, markup kept).
 - Backlog: MW-5 Coolify hosting, MW-6 real `/api/intake` backend.
@@ -70,7 +70,7 @@ Verification battery (all green at v8):
 - Form flow: empty submit focuses first invalid; filled submit shows "Case file opened." + FILED stamp (confirms on ok OR 404/405/501 from `/api/intake`).
 - impeccable detect: 0 anti-patterns (1 advisory: intentional ruled-paper texture — keep it).
 
-Jira state: MW-1 In Progress (epic); MW-2/3/4/8/9/10 Done; MW-5/6 Backlog; MW-7 In Progress (v6 live, awaiting operator close-out); MW-11/12/13 In Progress awaiting operator close-out; MW-14 Backlog (revive finding + quote); MW-15 In Progress (v7 live, awaiting operator close-out); MW-16 In Progress (v8 live, awaiting operator close-out); MW-17 Backlog (revive File exchange when real .REP files exist).
+Jira state: MW-1 In Progress (epic); MW-2/3/4/8/9/10 Done; MW-5/6 Backlog; MW-7 Done (operator closed 2026-11-15); MW-11/12/13 Done (operator closed 2026-11-15); MW-14 Backlog (revive finding + quote); MW-15 Done (operator closed 2026-11-15); MW-16 In Progress (v8 live, awaiting operator close-out); MW-17 Backlog (revive File exchange when real .REP files exist).
 
 Docs map: `docs/sparc-v4-intake.md` (v4 spec), `docs/sparc-v5-notes.md` (v5 spec), `docs/sparc-v6-content.md` (v6 spec), `docs/sparc-v7-brand.md` (v7 spec), `docs/sparc-v8-notes.md` (v8 spec), `docs/sigil-briefs.md` (16 original glyph briefs), `sparc/STATUS.md` (task table), `sparc/phase-reports.md` (RED/GREEN + defect log), `sparc/tasks.md`, `IDEA.md`, `PRODUCT.md`. Brief v8.1 source: `~/.hermes/attachments/pasted_content_2026-11-14_09-27-12-491_022e31.txt`.
 
@@ -121,7 +121,7 @@ Docs map: `docs/sparc-v4-intake.md` (v4 spec), `docs/sparc-v5-notes.md` (v5 spec
 - MW-6: real `/api/intake` endpoint (form currently confirms on 404/405/501 as a stub).
 - MW-14: revive featured finding/case study + client quote once real customer reports/quotes exist (removed in v6 to avoid fabricated content).
 - MW-17: revive File exchange section once real .REP case files exist (hidden in v8; remove `hidden`, re-add Evidence nav links, renumber FAQ back to 05).
-- Operator close-out of MW-7, MW-15, MW-16 and MW-11/12/13 when the user confirms the live rounds.
+- Operator close-out of MW-16 when the user confirms the live v8 round. (MW-7, MW-15, MW-11/12/13 closed 2026-11-15.)
 - "q6." from the brief: never clarified; ask if it becomes relevant.
 
 ## 8. Palette + type tokens (current)
