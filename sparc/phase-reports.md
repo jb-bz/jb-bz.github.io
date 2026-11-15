@@ -93,3 +93,27 @@ Date: 2026-11-15. Ticket MW-7 (In Progress), revival ticket MW-14 (Backlog). Spe
 - Anchor mechanics: `#intake` target lands at 72px (scroll-padding) via scrollIntoView; smooth-scroll click probe is a harness artifact, direct geometry verified.
 - Reduced-motion: sigil field + lamp hidden, reveals visible, no finding/quote.
 - no-JS: contact rows + form action intact without scripts.
+
+---
+
+# SPARC v7 phase reports — brand round (MW-15)
+
+Date: 2026-11-15. Ticket MW-15 (In Progress, epic MW-1). Spec: docs/sparc-v7-brand.md.
+
+## B1 — Intake form heading larger + bold
+- RED: 7 v7 contract failures pre-change (tests/test_v7.py).
+- GREEN: `.eyebrow-live` (OPEN A CASE) now clamp(1.375rem, 4vw, 1.875rem), font-weight 700 — 22px at 390, 30px at 1440 (was 13px). `.sheet-eyebrow` row clamp(1rem, 2.6vw, 1.25rem); FORM 01 stays 0.8125rem faint typewriter counterweight; dotted leader + green live dot kept. Eyebrow remains inside `.intake-formwrap` above the form (v5 ruling intact).
+
+## B2 — MysteryD wordmark as case-file stamp, larger than the CTA
+- `.wordmark` restyled: double 3px frame in currentColor, rotate(-2deg), red-deep stamp ink, letterspacing 0.08em, hover to full red. Still a link to `#intake` with aria-label.
+- Size: base clamp(2.25rem, 10vw, 4.5rem); desktop override 4.5rem. Measured wordmark vs headline: 320 → 36px vs 24.6px; 390 → 39px vs 30px; 1440 → 72px vs 44px. Dominates at every breakpoint.
+- No new assets/fonts/motion; reduced-motion unaffected (static stamp).
+
+## Verification
+- 53/53 contract tests OK (v4 + v5 + v6 + v7); node --check clean on both JS files.
+- 320/390/1440: wordmark > headline font-size, scrollWidth == viewport (no overflow), eyebrow 22–30px bold green, FORM 01 13px.
+- Vision PASS: desktop masthead (stamp ≈1.7× headline, no clipping/overlap), desktop form heading (leader row clean, fields normal), mobile top (stamp dominant, hamburger 47px target, gutters intact).
+- Reduced-motion: sigil field + lamp hidden, stamp + eyebrow sizes intact.
+- Form flow at 390: filled submit files case — form hidden, case-opened visible ("The night desk will respond within 24 hours."), fail hidden.
+- Harness flakes this round: 2 daemon timeouts on reload+evaluate chains — recovered via ensure_real_tab + new_tab, split into smaller steps. Mobile screenshot must scrollTo(0,0) after reload (scroll restore lands mid-page).
+- Deploy note: v6 commit b4f0921 was local-only (handoff "pushed" claim stale); v7 push carries v6+v7 to both remotes together.

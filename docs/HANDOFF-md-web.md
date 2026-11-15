@@ -1,13 +1,13 @@
 # HANDOFF — MysteryD web (md-web)
 
-Last updated: 2026-11-15, after v6 content round (MW-7).
+Last updated: 2026-11-15, after v7 brand round (MW-15).
 Read this first: sections 0 and 1. Everything else is reference.
 
 ## 0. Read this first
 
-The site is LIVE and current. v6 (content round C1–C4, MW-7) is deployed and verified on both GitHub Pages URLs. Nothing is mid-flight in the code. What is NOT done:
+The site is LIVE and current. v7 (brand round B1–B2, MW-15) is deployed and verified on both GitHub Pages URLs; the same push carried v6 (MW-7), whose commit had been local-only. Nothing is mid-flight in the code. What is NOT done:
 
-- Jira MW-7 and MW-11/12/13 are In Progress awaiting operator close-out (Form A rule: only the user closes a round).
+- Jira MW-7, MW-15 and MW-11/12/13 are In Progress awaiting operator close-out (Form A rule: only the user closes a round).
 - MW-14 (Backlog): revive featured finding/case study + client quote once real customer material exists.
 - Backlog: MW-5 Coolify hosting, MW-6 real `/api/intake` backend.
 - "q6." from the original brief was never clarified by the user.
@@ -34,9 +34,13 @@ REST: `https://api.atlassian.com/ex/jira/{cloudId}/rest/api/3/...`, Bearer token
 
 ## 2. Current state (verified 2026-11-15)
 
-HEAD is the v6 content-round commit, pushed to both remotes. Prior releases: `9d6584e` (v5), `e4db6ad` (v4).
+HEAD is the v7 brand-round commit, pushed to both remotes (that push also carried v6 `b4f0921`, which had never left the local repo). Prior releases: `9d6584e` (v5), `e4db6ad` (v4).
 
-Files: `index.html`, `styles.css`, `intake.js` (form logic), `atmosphere.js` (sigil canvas), `serve.py` (local static server), `tests/test_v4.py` + `tests/test_v5.py` + `tests/test_v6.py` (44 static contract tests), `assets/fonts/` (Special Elite, Source Sans 3 regular + italic, OFL.txt), `docs/`, `sparc/`.
+Files: `index.html`, `styles.css`, `intake.js` (form logic), `atmosphere.js` (sigil canvas), `serve.py` (local static server), `tests/test_v4.py` + `tests/test_v5.py` + `tests/test_v6.py` + `tests/test_v7.py` (53 static contract tests), `assets/fonts/` (Special Elite, Source Sans 3 regular + italic, OFL.txt), `docs/`, `sparc/`.
+
+v7 shipped brand (MW-15):
+- Intake form heading "OPEN A CASE" enlarged + bold: clamp(1.375rem, 4vw, 1.875rem), weight 700, green; FORM 01 stays small/faint; dotted leader kept.
+- MysteryD wordmark is now a case-file rubber stamp: double 3px frame, rotate(-2deg), red-deep ink, hover full red; clamp(2.25rem, 10vw, 4.5rem) base + 4.5rem desktop — larger than the CTA headline at 320/390/1440 (36/39/72px vs 24.6/30/44px). Still links `#intake`.
 
 v6 shipped content (MW-7):
 - Contact channel is form-only: Contact row links `#intake` with explanation; no email/mailto anywhere; form-failure copy says "Try again in a moment."
@@ -51,8 +55,8 @@ v5 shipped content:
 - Font stack: Special Elite (display + typewriter) + Source Sans 3 (body, italic variable) + system fallbacks. Rye and Anton fully removed (faces, tokens, files).
 - Deadline select: In 48 hours (rush charge applies) / 1 week / 2 weeks / Negotiable (default). Budget: only "Undecided (scope first)".
 
-Verification battery (all green at v6):
-- `python3 -m unittest discover -s tests` → 44/44 OK.
+Verification battery (all green at v7):
+- `python3 -m unittest discover -s tests` → 53/53 OK.
 - `node --check intake.js && node --check atmosphere.js` → clean.
 - Vision pass at 390×844 and 1440×900 (hero + services): no overflow/collision.
 - Reduced-motion: 0 animations, headline visible, sigil field hidden per CSS.
@@ -60,9 +64,9 @@ Verification battery (all green at v6):
 - Form flow: empty submit focuses first invalid; filled submit shows "Case file opened." + FILED stamp (confirms on ok OR 404/405/501 from `/api/intake`).
 - impeccable detect: 0 anti-patterns (1 advisory: intentional ruled-paper texture — keep it).
 
-Jira state: MW-1 In Progress (epic); MW-2/3/4/8/9/10 Done; MW-5/6 Backlog; MW-7 In Progress (v6 implemented + deployed, awaiting operator close-out); MW-11/12/13 In Progress awaiting operator close-out; MW-14 Backlog (revive finding + quote when customers exist).
+Jira state: MW-1 In Progress (epic); MW-2/3/4/8/9/10 Done; MW-5/6 Backlog; MW-7 In Progress (v6 implemented + deployed, awaiting operator close-out); MW-11/12/13 In Progress awaiting operator close-out; MW-14 Backlog (revive finding + quote when customers exist); MW-15 In Progress (v7 implemented + deployed, awaiting operator close-out).
 
-Docs map: `docs/sparc-v4-intake.md` (v4 spec), `docs/sparc-v5-notes.md` (v5 spec), `docs/sparc-v6-content.md` (v6 spec), `docs/sigil-briefs.md` (16 original glyph briefs), `sparc/STATUS.md` (task table), `sparc/phase-reports.md` (RED/GREEN + defect log), `sparc/tasks.md`, `IDEA.md`, `PRODUCT.md`. Brief v8.1 source: `~/.hermes/attachments/pasted_content_2026-11-14_09-27-12-491_022e31.txt`.
+Docs map: `docs/sparc-v4-intake.md` (v4 spec), `docs/sparc-v5-notes.md` (v5 spec), `docs/sparc-v6-content.md` (v6 spec), `docs/sparc-v7-brand.md` (v7 spec), `docs/sigil-briefs.md` (16 original glyph briefs), `sparc/STATUS.md` (task table), `sparc/phase-reports.md` (RED/GREEN + defect log), `sparc/tasks.md`, `IDEA.md`, `PRODUCT.md`. Brief v8.1 source: `~/.hermes/attachments/pasted_content_2026-11-14_09-27-12-491_022e31.txt`.
 
 ## 3. Hard rules (never break)
 
@@ -110,7 +114,7 @@ Docs map: `docs/sparc-v4-intake.md` (v4 spec), `docs/sparc-v5-notes.md` (v5 spec
 - MW-5: Coolify hosting (user wants it eventually; don't block on it).
 - MW-6: real `/api/intake` endpoint (form currently confirms on 404/405/501 as a stub).
 - MW-14: revive featured finding/case study + client quote once real customer reports/quotes exist (removed in v6 to avoid fabricated content).
-- Operator close-out of MW-7 and MW-11/12/13 when the user confirms the live rounds.
+- Operator close-out of MW-7, MW-15 and MW-11/12/13 when the user confirms the live rounds.
 - "q6." from the brief: never clarified; ask if it becomes relevant.
 
 ## 8. Palette + type tokens (current)

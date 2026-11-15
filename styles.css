@@ -199,14 +199,19 @@ body {
   padding: 0.875rem 0 0.5rem;
 }
 .wordmark {
+  display: inline-block;
   font-family: var(--font-display);
-  font-size: clamp(1.625rem, 7.5vw, 2.75rem);
-  line-height: 1;
-  letter-spacing: 0.06em;
-  color: var(--ink);
+  font-size: clamp(2.25rem, 10vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+  color: var(--red-deep);
   text-decoration: none;
+  border: 3px double currentColor;
+  padding: 0.18em 0.4em 0.14em;
+  transform: rotate(-2deg);
+  transition: color 0.15s ease;
 }
-.wordmark:hover { color: var(--red-deep); }
+.wordmark:hover { color: var(--red); }
 
 .menu-toggle {
   display: inline-flex; align-items: center; justify-content: center;
@@ -280,12 +285,17 @@ body {
 .sheet-eyebrow {
   display: flex; align-items: center; gap: 0.75rem;
   font-family: var(--font-type);
-  font-size: 0.8125rem;
+  font-size: clamp(1rem, 2.6vw, 1.25rem);
   letter-spacing: 0.12em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
-.eyebrow-live { color: var(--green); display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
-.eyebrow-form { color: var(--ink-faint); white-space: nowrap; }
+.eyebrow-live {
+  color: var(--green); display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap;
+  font-size: clamp(1.375rem, 4vw, 1.875rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.eyebrow-form { color: var(--ink-faint); white-space: nowrap; font-size: 0.8125rem; }
 .leader { flex: 1; border-bottom: 2px dotted var(--rule); transform: translateY(-0.2em); }
 
 .headline {
@@ -692,7 +702,7 @@ body {
   .topbar { display: flex; }
 
   .masthead { padding-top: 1.25rem; }
-  .wordmark { font-size: 2.75rem; }
+  .wordmark { font-size: 4.5rem; }
   .site-nav { display: none; }
 
   .sheet { padding: 4rem 0 4.5rem; }
