@@ -62,11 +62,11 @@
             <span class="hl-line">before your users do.<span class="hl-stop" aria-hidden="true"></span></span>
           </h1>
           <p class="deck">Full-cycle QA and adversarial testing, run like a case file. Plain-English findings, numbered steps to reproduce, nothing fabricated.</p>
-          <p class="lede-note">Every case is read by a person. The night desk replies within a business&nbsp;day.</p>
+          <p class="lede-note">Every case is read by a person. The night desk replies within 24&nbsp;hours.</p>
           <div class="lede-log">
             <p class="block-label">The night desk</p>
             <ol class="desk-log">
-              <li><span class="log-time">1</span><div><strong>Intake read.</strong> A person reads the form the same business day.</div></li>
+              <li><span class="log-time">1</span><div><strong>Intake read.</strong> A person reads the form within 24 hours.</div></li>
               <li><span class="log-time">2</span><div><strong>Scope agreed.</strong> What gets examined, and what does not, in writing.</div></li>
               <li><span class="log-time">3</span><div><strong>Case file delivered.</strong> Findings, reproductions and evidence, or a clean result.</div></li>
             </ol>
@@ -128,14 +128,14 @@
               </div>
             </div>
             <button class="open-case" type="submit">Open case</button>
-            <p class="reassurance">A human replies within one business day. Nothing is fabricated.</p>
-            <p class="form-fail" id="form-fail" role="alert" hidden>The desk could not file the case just now. Try again, or write to the address in the case notes.</p>
+            <p class="reassurance">A human replies within 24 hours. Nothing is fabricated.</p>
+            <p class="form-fail" id="form-fail" role="alert" hidden>The desk could not file the case just now. Try again in a moment.</p>
           </form>
 
           <div id="case-opened" class="case-opened" role="status" hidden>
             <span class="case-stamp" aria-hidden="true">FILED</span>
             <p class="case-opened-title">Case file opened.</p>
-            <p class="case-opened-body">The night desk will respond within one business day.</p>
+            <p class="case-opened-body">The night desk will respond within 24 hours.</p>
             <p class="case-opened-ref">FORM 01 · FILED <span id="case-filed-at"></span></p>
           </div>
         </div>
@@ -158,7 +158,7 @@
         <li><span class="index-num">05</span><div><h3>Accessibility scan</h3><p>A thorough WCAG 2.1 and 2.2 audit with selectable granularity: pick conformance level A, AA, or AAA, and how deep each check goes. Every barrier ships with the affected criterion and a fix.</p></div></li>
         <li><span class="index-num">06</span><div><h3>Penetration testing</h3><p>Authorized penetration tests against your product, run under agreed scope and rules of engagement. Findings, reproduction steps and results arrive as a case file.</p></div></li>
         <li><span class="index-num">07</span><div><h3>Reports and evidence</h3><p>Every finding ships with numbered steps to reproduce, expected versus observed, and the evidence attached.</p></div></li>
-        <li class="index-cta"><span class="index-num">08</span><div><h3><a href="#intake">Open a case</a></h3><p>Start with the intake form. A person reads it and replies within one business day.</p></div></li>
+        <li class="index-cta"><span class="index-num">08</span><div><h3><a href="#intake">Open a case</a></h3><p>Start with the intake form. A person reads it and replies within 24 hours.</p></div></li>
       </ol>
     </section>
 
@@ -208,15 +208,6 @@
         </div>
       </div>
 
-      <div class="finding">
-        <p class="block-label">Sample finding</p>
-        <p class="finding-sev"><span class="sev-tag">Severity: pending</span></p>
-        <p class="finding-title">[A real finding from the source QA report is placed here once supplied, with its severity label and the Expected versus Observed record below. No fabricated example ships.]</p>
-        <dl class="expected-observed">
-          <div><dt>Expected</dt><dd>[pending real report]</dd></div>
-          <div><dt>Observed</dt><dd>[pending real report]</dd></div>
-        </dl>
-      </div>
     </section>
 
     <!-- ============ SECTION 5 · CASE NOTES · folio 05 ============ -->
@@ -230,7 +221,7 @@
       <div class="faq">
         <details>
           <summary>How fast can you start?</summary>
-          <div class="faq-a"><p>Intake is read the same business day. A scoped engagement usually starts within a week; release-verification passes can be slotted faster when the date is fixed.</p></div>
+          <div class="faq-a"><p>Intake is read within 24 hours. A scoped engagement usually starts within a week; release-verification passes can be slotted faster when the date is fixed.</p></div>
         </details>
         <details>
           <summary>Do you work under NDA?</summary>
@@ -253,21 +244,11 @@
       <div class="contact-block">
         <p class="block-label">The desk</p>
         <dl class="contact-list">
-          <div><dt>Email</dt><dd>[contact email pending]</dd></div>
+          <div><dt>Contact</dt><dd>Every case starts at the <a href="#intake">intake form</a> — one channel, so nothing is lost and everything stays confidential.</dd></div>
           <div><dt>Location</dt><dd>Los Angeles, California</dd></div>
-          <div><dt>Hours</dt><dd>[hours pending] · night&nbsp;desk&nbsp;on&nbsp;duty</dd></div>
+          <div><dt>Hours</dt><dd>24/7 · a person replies within 24&nbsp;hours</dd></div>
         </dl>
       </div>
-
-      <figure class="pullquote">
-        <svg class="quote-sigil" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="240 36" stroke-linecap="round"/>
-          <path d="M50 12 L72.4 80.9 L13.9 38.5 L86.1 38.5 L27.6 80.9 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          <ellipse cx="50" cy="50" rx="10" ry="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <circle cx="50" cy="50" r="2.2" fill="currentColor"/>
-        </svg>
-        <blockquote>What we find stays found.</blockquote>
-      </figure>
     </section>
 
   </main>

@@ -54,7 +54,7 @@
   /* ---- staged reveals (progressive enhancement) ---- */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduce && 'IntersectionObserver' in window) {
-    var targets = document.querySelectorAll('.sheet-head, .sheet-lede, .index-list li, .steps li, .files-block, .finding, .faq details, .contact-block, .pullquote');
+    var targets = document.querySelectorAll('.sheet-head, .sheet-lede, .index-list li, .steps li, .files-block, .faq details, .contact-block');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {

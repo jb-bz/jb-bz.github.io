@@ -115,8 +115,7 @@ class N5FontStack(unittest.TestCase):
         self.assertRegex(CSS, r"--font-display:\s*'Special Elite'")
 
     def test_former_anton_elements_retuned(self):
-        for selector in (r"\.headline", r"\.step-num", r"\.case-opened-title",
-                         r"\.pullquote blockquote"):
+        for selector in (r"\.headline", r"\.step-num", r"\.case-opened-title"):
             blocks = re.findall(selector + r"\s*\{([^}]*)\}", CSS)
             self.assertTrue(blocks, selector)
             joined = " ".join(blocks)

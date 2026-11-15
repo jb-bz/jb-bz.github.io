@@ -62,3 +62,34 @@ Date: 2026-11-15. Tickets MW-11/12/13 (In Progress). Spec: docs/sparc-v5-notes.m
 - no-JS: headline + 8 form fields visible without scripts.
 - Form flow: empty submit focuses first invalid; filled submit files the case ("Case file opened." + FILED stamp).
 - impeccable detect: 0 anti-patterns (1 advisory: intentional ruled-paper texture).
+
+---
+
+# SPARC v6 phase reports — content round (MW-7)
+
+Date: 2026-11-15. Ticket MW-7 (In Progress), revival ticket MW-14 (Backlog). Spec: docs/sparc-v6-content.md.
+
+## C1 — Contact channel: form only
+- RED: 13 v6 contract failures pre-change (tests/test_v6.py).
+- GREEN: `[contact email pending]` row replaced by Contact row linking `#intake` with explanation ("one channel, so nothing is lost and everything stays confidential"). Zero mailto/email anywhere. Form-failure copy no longer references a nonexistent address ("Try again in a moment.").
+- Contact link styled to palette: red-deep underline, red on hover.
+
+## C2 — Hours 24/7 + 24-hour reply
+- Hours row: `24/7 · a person replies within 24 hours`.
+- All six "business day" promises converted to "24 hours": lede note, desk-log step 1, form reassurance, case-opened confirmation, services entry 08, FAQ "How fast can you start?". Status strip "NIGHT DESK ON DUTY" kept.
+
+## C3 — Featured finding removed
+- `.finding` block (Sample finding, severity tag, Expected/Observed placeholders) deleted from File exchange. Files table + honest pending row kept.
+- CSS: base `.finding`/`.sev-tag`/`.expected-observed` rules + desktop overrides removed; reveal selector in intake.js cleaned.
+
+## C4 — Client quote removed
+- `.pullquote` figure + `quote-sigil` SVG deleted. CSS: base rules, `sigil-turn` keyframes, desktop grid overrides, reduced-motion entry removed. v5 retune test updated (element no longer exists).
+- Revival of C3 + C4 tracked in MW-14, gated on real customer reports/quotes — no fabricated content ships.
+
+## Verification
+- 44/44 contract tests OK (v4 + v5 + v6); node --check clean on both JS files.
+- 390×844: contact rows correct, no finding/pullquote/blockquote, 0 mailto, no "business day" text, no horizontal overflow; form flow files case with 24-hour confirmation.
+- 1440×900: notes two-column grid, sticky desk block, contact link red-deep underlined; vision PASS on Case notes (FAQ left, desk right, no dark quote card).
+- Anchor mechanics: `#intake` target lands at 72px (scroll-padding) via scrollIntoView; smooth-scroll click probe is a harness artifact, direct geometry verified.
+- Reduced-motion: sigil field + lamp hidden, reveals visible, no finding/quote.
+- no-JS: contact rows + form action intact without scripts.
