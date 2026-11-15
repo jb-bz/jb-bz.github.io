@@ -30,9 +30,7 @@ class T1Headline(unittest.TestCase):
     def test_cta_headline_present(self):
         flat = re.sub(r"<[^>]+>", "", HTML)
         flat = re.sub(r"\s+", " ", flat)
-        self.assertIn("Something is wrong.", flat)
-        self.assertIn("We find it", flat)
-        self.assertIn("before your users do", flat)
+        self.assertIn("We find what's wrong before your users do.", flat)
 
     def test_accent_hooks_intact(self):
         self.assertIn('class="hl-wrong"', HTML)

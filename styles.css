@@ -2,16 +2,6 @@
    desktop (>=1024px) becomes a two-column dossier spread with a sticky desk bar. */
 
 @font-face {
-  font-family: 'Rye';
-  src: url('assets/fonts/rye.woff2') format('woff2');
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Anton';
-  src: url('assets/fonts/anton.woff2') format('woff2');
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
   font-family: 'Special Elite';
   src: url('assets/fonts/special-elite.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
@@ -40,8 +30,7 @@
   --red-deep: #8e2f20;
   --green: #1e6e5a;
   --folio: rgba(146, 116, 70, 0.14);
-  --font-display: 'Rye', 'Georgia', serif;
-  --font-head: 'Anton', 'Arial Narrow', sans-serif;
+  --font-display: 'Special Elite', 'Courier New', monospace;
   --font-type: 'Special Elite', 'Courier New', monospace;
   --font-body: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
   --gutter: clamp(1.25rem, 5vw, 3rem);
@@ -141,10 +130,10 @@ body {
 .topbar.visible { transform: translateY(0); }
 .topbar-mark {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.0625rem;
+  letter-spacing: 0.06em;
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: 0.03em;
 }
 .topbar-nav { display: flex; gap: 1.5rem; margin-left: auto; }
 .topbar-nav a {
@@ -211,9 +200,9 @@ body {
 }
 .wordmark {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 9vw, 3.25rem);
+  font-size: clamp(1.625rem, 7.5vw, 2.75rem);
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: var(--ink);
   text-decoration: none;
 }
@@ -278,7 +267,7 @@ body {
   position: absolute;
   top: 0.5rem; left: -1.5rem;
   font-family: var(--font-display);
-  font-size: clamp(7rem, 16vw, 12rem);
+  font-size: clamp(5.5rem, 12vw, 9rem);
   line-height: 1;
   color: var(--folio);
   pointer-events: none;
@@ -301,10 +290,10 @@ body {
 
 .headline {
   margin: 0 0 1.25rem;
-  font-family: var(--font-head);
+  font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.5rem, 11.5vw, 4.75rem);
-  line-height: 1.14;
+  font-size: clamp(1.5rem, 7.7vw, 3.5rem);
+  line-height: 1.16;
   letter-spacing: 0.005em;
   color: var(--ink);
 }
@@ -339,6 +328,7 @@ body {
   display: inline-block;
   width: 0.22em; height: 0.22em;
   margin-left: 0.12em;
+  vertical-align: baseline;
   background: var(--ink);
 }
 
@@ -423,7 +413,7 @@ body {
   );
   background-attachment: local;
 }
-.field input::placeholder, .field textarea::placeholder { color: var(--ink-faint); opacity: 1; }
+.field input::placeholder, .field textarea::placeholder { color: var(--ink-faint); opacity: 1; font-style: italic; }
 .field input:hover, .field textarea:hover, .field select:hover { border-bottom-color: var(--ink); }
 .field input:focus, .field textarea:focus, .field select:focus {
   outline: none;
@@ -512,7 +502,9 @@ body {
   0%, 100% { transform: none; }
   40% { transform: translateY(2px); }
 }
-.case-opened-title { margin: 0 0 0.5rem; font-family: var(--font-head); font-size: 1.75rem; color: var(--green); }
+.case-opened:focus { outline: 2px solid var(--green); outline-offset: 3px; }
+
+.case-opened-title { margin: 0 0 0.5rem; font-family: var(--font-display); font-size: 1.375rem; color: var(--green); }
 .case-opened-body { margin: 0 0 0.75rem; color: var(--ink-soft); }
 .case-opened-ref { margin: 0; font-family: var(--font-type); font-size: 0.8125rem; letter-spacing: 0.1em; color: var(--green); }
 
@@ -523,8 +515,9 @@ body {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.75rem, 7vw, 2.5rem);
-  line-height: 1.1;
+  font-size: clamp(1.375rem, 5.5vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
   color: var(--ink);
 }
 .sheet-num { font-family: var(--font-type); font-size: 0.9375rem; color: var(--ink-faint); }
@@ -576,7 +569,7 @@ body {
   border-top: 1px dotted var(--rule-soft);
 }
 .steps li:first-child { border-top: 1px solid var(--rule); }
-.step-num { font-family: var(--font-head); font-size: 1.5rem; line-height: 1.2; color: var(--ink-faint); }
+.step-num { font-family: var(--font-display); font-size: 1.25rem; line-height: 1.3; color: var(--ink-faint); }
 .steps h3 { margin: 0 0 0.25rem; font-weight: 700; font-size: 1.125rem; }
 .steps p { margin: 0; max-width: 70ch; color: var(--ink-soft); text-wrap: balance; }
 
@@ -692,9 +685,9 @@ body {
 .pullquote blockquote { position: relative; }
 .pullquote blockquote {
   margin: 0;
-  font-family: var(--font-head);
-  font-size: clamp(1.5rem, 5vw, 2rem);
-  line-height: 1.15;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4.5vw, 1.625rem);
+  line-height: 1.3;
   letter-spacing: 0.01em;
 }
 
@@ -752,7 +745,7 @@ body {
   .topbar { display: flex; }
 
   .masthead { padding-top: 1.25rem; }
-  .wordmark { font-size: 3.5rem; }
+  .wordmark { font-size: 2.75rem; }
   .site-nav { display: none; }
 
   .sheet { padding: 4rem 0 4.5rem; }
@@ -766,7 +759,7 @@ body {
     align-items: start;
   }
   .intake-lede { position: sticky; top: calc(var(--topbar-h) + 2rem); }
-  .headline { font-size: clamp(3rem, 4.4vw, 4rem); }
+  .headline { font-size: clamp(2rem, 3.2vw, 2.625rem); }
   .deck { font-size: 1.1875rem; }
   .lede-note { margin-bottom: 1.5rem; }
   .lede-log { display: block; }
@@ -798,7 +791,7 @@ body {
     padding: 1.25rem 0;
   }
   .steps li:nth-child(-n+3) { border-top: 1px solid var(--rule); }
-  .step-num { font-size: 2rem; color: var(--red); }
+  .step-num { font-size: 1.5rem; color: var(--red); }
 
   /* Section 4: table left, sample finding right */
   #exchange .sheet-lede { max-width: 60ch; }
@@ -816,7 +809,7 @@ body {
   #notes .faq { margin-bottom: 0; }
   #notes .contact-block { margin-bottom: 0; position: sticky; top: calc(var(--topbar-h) + 2rem); }
   .pullquote { margin: 3rem auto 0; padding: 2.25rem 2.5rem; }
-  .pullquote blockquote { font-size: 2.25rem; }
+  .pullquote blockquote { font-size: 1.75rem; }
 
   .colophon { padding: 2.5rem 0 3.5rem; }
 }
@@ -824,5 +817,5 @@ body {
 @media (min-width: 1440px) {
   :root { --sheet-w: 76rem; }
   .intake-grid { gap: 5rem; }
-  .headline { font-size: 4.25rem; }
+  .headline { font-size: 2.75rem; }
 }

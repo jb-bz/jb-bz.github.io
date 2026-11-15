@@ -56,15 +56,10 @@
       <span class="folio" aria-hidden="true">01</span>
       <div class="intake-grid">
         <div class="intake-lede">
-          <div class="sheet-eyebrow">
-            <span class="eyebrow-live"><span class="dot" aria-hidden="true"></span>OPEN A CASE</span>
-            <span class="leader" aria-hidden="true"></span>
-            <span class="eyebrow-form">FORM 01</span>
-          </div>
           <h1 id="intake-title" class="headline">
-            <span class="hl-line">Something is <em class="hl-wrong">wrong.</em></span>
-            <span class="hl-line">We find it</span>
-            <span class="hl-line">before your users do<span class="hl-stop" aria-hidden="true"></span></span>
+            <span class="hl-line">We find</span>
+            <span class="hl-line"><em class="hl-wrong">what's wrong</em></span>
+            <span class="hl-line">before your users do.<span class="hl-stop" aria-hidden="true"></span></span>
           </h1>
           <p class="deck">Full-cycle QA and adversarial testing, run like a case file. Plain-English findings, numbered steps to reproduce, nothing fabricated.</p>
           <p class="lede-note">Every case is read by a person. The night desk replies within a business&nbsp;day.</p>
@@ -79,6 +74,11 @@
         </div>
 
         <div class="intake-formwrap">
+          <div class="sheet-eyebrow">
+            <span class="eyebrow-live"><span class="dot" aria-hidden="true"></span>OPEN A CASE</span>
+            <span class="leader" aria-hidden="true"></span>
+            <span class="eyebrow-form">FORM 01</span>
+          </div>
           <form id="intake-form" action="/api/intake" method="post">
             <div class="field">
               <label for="f-name">Your name</label>
@@ -149,14 +149,16 @@
         <h2 id="services-title" class="sheet-title">Services index</h2>
         <span class="sheet-num">02</span>
       </div>
-      <p class="sheet-lede">Six entries in the index, each ending in the same artifact: a case file your team can act on.</p>
+      <p class="sheet-lede">Eight entries in the index, each ending in the same artifact: a case file your team can act on.</p>
       <ol class="index-list">
         <li><span class="index-num">01</span><div><h3>Full-cycle QA</h3><p>We test the whole product the way your users actually move through it, not just the happy path.</p></div></li>
         <li><span class="index-num">02</span><div><h3>Adversarial UX</h3><p>We use the product the way a hostile or careless person would, and record what breaks.</p></div></li>
         <li><span class="index-num">03</span><div><h3>Regression and retest</h3><p>After your team fixes a defect, we run the same steps again to confirm it is gone and nothing new broke.</p></div></li>
         <li><span class="index-num">04</span><div><h3>Agent readiness scan</h3><p>We check whether an automated agent can use your product safely, and where it would get stuck or do harm.</p></div></li>
-        <li><span class="index-num">05</span><div><h3>Reports and evidence</h3><p>Every finding ships with numbered steps to reproduce, expected versus observed, and the evidence attached.</p></div></li>
-        <li class="index-cta"><span class="index-num">06</span><div><h3><a href="#intake">Open a case</a></h3><p>Start with the intake form. A person reads it and replies within one business day.</p></div></li>
+        <li><span class="index-num">05</span><div><h3>Accessibility scan</h3><p>A thorough WCAG 2.1 and 2.2 audit with selectable granularity: pick conformance level A, AA, or AAA, and how deep each check goes. Every barrier ships with the affected criterion and a fix.</p></div></li>
+        <li><span class="index-num">06</span><div><h3>Penetration testing</h3><p>Authorized penetration tests against your product, run under agreed scope and rules of engagement. Findings, reproduction steps and results arrive as a case file.</p></div></li>
+        <li><span class="index-num">07</span><div><h3>Reports and evidence</h3><p>Every finding ships with numbered steps to reproduce, expected versus observed, and the evidence attached.</p></div></li>
+        <li class="index-cta"><span class="index-num">08</span><div><h3><a href="#intake">Open a case</a></h3><p>Start with the intake form. A person reads it and replies within one business day.</p></div></li>
       </ol>
     </section>
 
