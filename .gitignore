@@ -1,0 +1,5 @@
+.impeccable/
+assets/_rejected/
+serve.py
+*.log
+.DS_Store
